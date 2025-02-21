@@ -1,0 +1,59 @@
+--------------------
+App.json
+le slug doit etre unuique
+    "slug": "navigation-saloum",
+la version doit etre incrementé à chaque etape
+    "version": "1.0.0",
+on peut modifier l'icone
+    "icon": "./assets/icon.png",
+ajoutez
+    "ios": {
+        "bundleIdentifier":"com.votreSociete.nomApplication",
+    "android": {
+        "package": "com.sylla.navigation",
+---------------------------
+compilation
+creez un project sur expo.dev
+dans le terminal:
+Lier un Codebase Existant
+Si vous avez déjà un projet React Native et que vous souhaitez le configurer pour utiliser EAS, suivez ces étapes :
+
+installez EAS CLI globalement sur votre machine :
+npm install --global eas-cli
+
+Initialiser EAS dans votre Projet : 
+    Ouvrez un terminal et naviguez vers le répertoire racine de votre projet.
+    Exécutez la commande eas init pour initialiser EAS, en spécifiant l'identifiant unique de votre projet avec l'option --id :
+        eas init --id idQueVousRecuperezSurExpo.dev
+---
+Un "build" fait référence au processus de compilation et d'emballage de votre application React Native en une application autonome qui peut être installée sur des appareils iOS ou Android. 
+EAS propose des services de build dans le cloud, ce qui signifie qu'il peut compiler votre application sur les serveurs d'Expo, vous évitant ainsi de devoir configurer l'environnement de développement approprié sur votre machine locale.
+---
+
+Pour créer un build, ouvrez votre terminal et naviguez vers le répertoire de votre projet.
+
+Exécutez la commande de build pour votre plateforme cible :
+    Pour Android : eas build -p android
+    Pour iOS : eas build -p ios
+
+Suivez les instructions : 
+    L'interface en ligne de commande EAS vous guidera tout au long du processus, en demandant les informations et les autorisations nécessaires.
+
+Attendez la fin du build : 
+    Le processus de build prendra un certain temps. 
+    Vous pouvez suivre la progression sur le tableau de bord EAS sur le site web d'Expo.
+
+Une fois le build terminé, vous pourrez télécharger l'application compilée depuis le tableau de bord EAS 
+
+!!!!!!!!!!!!!!!!!!!!!
+Pour ajouter les propriétés nécessaires pour générer un fichier APK avec EAS Build, vous devez modifier le fichier eas.json en ajoutant les propriétés suivantes dans un profil de construction :
+ "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk",
+        "gradleCommand": ":app:assembleRelease"
+      }
+    },
+eas build -p android --profile preview
+" pour générer le fichier APK. 
+--!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!

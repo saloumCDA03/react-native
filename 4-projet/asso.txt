@@ -1,0 +1,18 @@
+Fonctionnalités Essentielles :
+
+Calendrier des Entraînements : Affichage des jours et heures des séances.
+Inscription au club : 
+Liste des Équipes : Présenter les différentes équipes du club.
+evenement : 
+Technologies et Outils :
+
+React Native : Pour le développement de l'application mobile.
+Expo : Pour simplifier le développement et le déploiement de l'application.
+
+Design Simple et Intuitif : Assurer une navigation facile entre les différentes fonctionnalités.
+Responsive Design : Adapter l'interface pour différentes tailles d'écran.
+Développement :
+
+Définir les composants React pour chaque fonctionnalité.
+Implémenter la logique de navigation avec React Navigation.
+Tester sur différents appareils ou émulateurs.

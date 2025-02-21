@@ -1,0 +1,62 @@
+*********************** Introduction à createContext useContext ***********************
+useContext est un hook React qui permet de partager des valeurs comme l'état et les fonctions entre les composants sans avoir à passer explicitement une prop à chaque niveau de l'arborescence. 
+Cela est particulièrement utile pour des valeurs qui doivent être accessibles par de nombreux composants à différents niveaux.
+
+--- Création d'un Contexte
+Avant de pouvoir utiliser useContext, vous devez créer un contexte à l'aide de createContext.
+    import React, { createContext } from 'react';
+
+    const MonContexte = createContext(valeurInitiale);
+valeurInitiale est la valeur que le contexte aura si le composant consommateur ne se trouve pas dans un fournisseur de ce contexte.
+
+---Fournisseur de Contexte
+Le contexte créé expose un composant Provider qui permet de définir la valeur du contexte. 
+Tous les composants enfants du fournisseur auront accès à la valeur du contexte.
+    <MonContexte.Provider value={/* valeur du contexte */}>
+    {/* composants enfants */}
+    </MonContexte.Provider>
+
+---Utilisation de useContext
+Vous pouvez utiliser le hook useContext pour accéder à la valeur actuelle du contexte.
+    const valeur = useContext(MonContexte);
+
+Exemple Complet
+    import React, { createContext, useContext, useState } from 'react';
+
+    // 1. Création du contexte
+    const ThemeContext = createContext();
+
+    function App() {
+    // 2. Création de l'état qui sera partagé
+    const [theme, setTheme] = useState('clair');
+
+    return (
+        // 3. Fournir l'état au contexte
+        <ThemeContext.Provider value={{ theme, setTheme }}>
+        <ComposantEnfant />
+        </ThemeContext.Provider>
+    );
+    }
+
+    function ComposantEnfant() {
+    // 4. Utilisation du contexte dans un composant enfant
+    const { theme, setTheme } = useContext(ThemeContext);
+
+    return (
+        <div>
+        <p>Le thème actuel est {theme}</p>
+        <button onClick={() => setTheme('sombre')}>Changer en sombre</button>
+        </div>
+    );
+    }
+    Dans cet exemple, App est le composant parent qui définit un état theme et le fournit à ses enfants via ThemeContext.Provider. ComposantEnfant accède ensuite à cet état via useContext(ThemeContext), lui permettant d'afficher et de modifier le thème.
+
+----Bonnes Pratiques
+Ne surchargez pas le contexte: 
+    Évitez de placer trop de valeurs dans un seul contexte. 
+    Si vous avez des données ou des fonctions qui ne sont pas étroitement liées, envisagez de créer des contextes séparés.
+Utilisez des hooks personnalisés: 
+    Pour rendre votre code plus propre et réutilisable, encapsulez la logique d'accès au contexte dans des hooks personnalisés.
+Utilisez useContext avec parcimonie: 
+    N'utilisez useContext que lorsque vous avez réellement besoin d'accéder à des valeurs dans de nombreux composants à différents niveaux. 
+    Si vous n'avez besoin de passer des données qu'à quelques niveaux, les props peuvent être une meilleure option.

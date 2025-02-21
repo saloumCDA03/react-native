@@ -1,0 +1,56 @@
+Projet React Native : Application de Gestion de Contacts
+Objectif du Projet
+Le but de ce projet est de créer une application mobile simple pour gérer une liste de contacts. Les utilisateurs pourront ajouter, visualiser et supprimer des contacts. 
+utilisation de styles, de formulaires, de FlatList, et de React Navigation dans une application React Native.
+
+Structure du Dossier
+ProjetContacts/
+│
+├── src/
+│   ├── components/
+│   │   ├── ContactItem.js
+│   │   └── ContactForm.js
+│   │
+│   ├── screens/
+│   │   ├── HomeScreen.js
+│   │   ├── AddContactScreen.js+
+│   │   └── ContactDetailScreen.js
+│   │
+│   ├── data/
+│   │   └── contacts.js
+│   │
+│   ├── styles/
+│   │   ├── GlobalStyles.js
+│   │   └── ContactItemStyles.js
+│   │
+│   
+└── App.js
+├── .gitignore
+├── package.json
+└── README.md
+Instructions
+1. Configuration de l'Environnement
+
+2. Création des Composants
+ContactItem.js : Un composant pour afficher les détails d'un contact dans une liste.
+ContactForm.js : Un formulaire pour ajouter un nouveau contact.
+
+3. Création des Écrans
+HomeScreen.js : L'écran principal qui affiche la liste des contacts.
+AddContactScreen.js : Un écran avec le formulaire pour ajouter un nouveau contact.
+ContactDetailScreen.js : Un écran pour afficher les détails d'un contact spécifique.
+
+4. Navigation
+Utilisez React Navigation pour naviguer entre les différents écrans.
+
+5. Styles
+Créez des fichiers de styles dans le dossier styles et appliquez-les aux composants et aux écrans ou tilisez stylesheet.
+
+6. Gestion des Données
+Utilisez le fichier contacts.js dans le dossier data pour stocker et gérer la liste des contacts.
+
+7. FlatList
+Utilisez le composant FlatList pour afficher la liste des contacts dans HomeScreen.js.
+
+8. Formulaire
+Créez un formulaire dans ContactForm.js pour ajouter de nouveaux contacts.
